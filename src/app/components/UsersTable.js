@@ -1,4 +1,4 @@
-import React from "react";
+import React, { memo } from "react";
 import { styled } from "@mui/material/styles";
 import Table from "@mui/material/Table";
 import TableBody from "@mui/material/TableBody";
@@ -7,6 +7,8 @@ import TableContainer from "@mui/material/TableContainer";
 import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
+import { Button } from "@mui/material";
+import { useNavigate } from "react-router-dom";
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
   [`&.${tableCellClasses.head}`]: {
@@ -29,7 +31,8 @@ const StyledTableRow = styled(TableRow)(({ theme }) => ({
 }));
 
 function UsersTable(props) {
-  console.log(props, "props");
+  console.log("user table");
+  let navigate = useNavigate();
   return (
     <TableContainer component={Paper}>
       <Table sx={{ minWidth: 700 }} aria-label="customized table">
@@ -38,6 +41,7 @@ function UsersTable(props) {
             <StyledTableCell>NAME</StyledTableCell>
             <StyledTableCell>CONTACT NO</StyledTableCell>
             <StyledTableCell>EMAIL ID</StyledTableCell>
+            <StyledTableCell>Details</StyledTableCell>
           </TableRow>
         </TableHead>
         <TableBody>
@@ -47,6 +51,16 @@ function UsersTable(props) {
                 <StyledTableCell>{record.name}</StyledTableCell>
                 <StyledTableCell>{record.contact_no}</StyledTableCell>
                 <StyledTableCell>{record.email}</StyledTableCell>
+                <StyledTableCell>
+                  <Button
+                    variant="contained"
+                    onClick={() => {
+                      return navigate(`/details/${record.user_id}`);
+                    }}
+                  >
+                    Details
+                  </Button>
+                </StyledTableCell>
               </StyledTableRow>
             );
           })}
@@ -56,4 +70,4 @@ function UsersTable(props) {
   );
 }
 
-export default UsersTable;
+export default memo(UsersTable);

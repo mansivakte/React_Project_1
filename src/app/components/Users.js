@@ -1,5 +1,5 @@
 import axios from "axios";
-import { useState, useEffect } from "react";
+import { useState, useEffect, memo } from "react";
 import UsersTable from "./UsersTable";
 
 const Users = () => {
@@ -17,11 +17,12 @@ const Users = () => {
       });
   }, []);
 
-  console.log("user user", user);
-
+  const [cmp, updatecmp] = useState(false);
   return (
     <>
-      <UsersTable data={user} />
+      <h2>Users Page</h2>
+      <button onClick={() => updatecmp(!cmp)}>Update</button>
+      <UsersTable data={user} cmp={cmp} />
     </>
   );
 };
