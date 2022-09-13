@@ -28,7 +28,7 @@ export default function MyForm() {
         label="Email"
       />
       <Button type="submit" variant="contained">
-        Submit
+        Details
       </Button>
     </Box>
   );
