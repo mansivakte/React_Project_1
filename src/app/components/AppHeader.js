@@ -9,11 +9,13 @@ import List from "@mui/material/List";
 import ListItem from "@mui/material/ListItem";
 import ListItemButton from "@mui/material/ListItemButton";
 import ListItemText from "@mui/material/ListItemText";
+import { useNavigate } from "react-router-dom";
 // import MenuIcon from "@mui/icons-material/Menu";
 
 const navItems = ["Home", "About", "Contact"];
 
 export default function AppHeader() {
+  let navigate = useNavigate();
   return (
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position="static">
@@ -31,7 +33,14 @@ export default function AppHeader() {
             My APP
           </Typography>
 
-          <Button color="inherit">Log Out</Button>
+          <Button
+            color="inherit"
+            onClick={() => {
+              return navigate("/");
+            }}
+          >
+            Log Out
+          </Button>
         </Toolbar>
       </AppBar>
     </Box>

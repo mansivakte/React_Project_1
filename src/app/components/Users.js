@@ -21,7 +21,7 @@ const Users = () => {
   return (
     <>
       <h2>Users Page</h2>
-      <button onClick={() => updatecmp(!cmp)}>Update</button>
+      {/* <button onClick={() => updatecmp(!cmp)}>Update</button> */}
       <UsersTable data={user} cmp={cmp} />
     </>
   );
