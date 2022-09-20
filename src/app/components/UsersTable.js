@@ -30,8 +30,8 @@ const StyledTableRow = styled(TableRow)(({ theme }) => ({
   },
 }));
 
-function UsersTable(props) {
-  console.log("user table");
+function UsersTable({ data }) {
+  // const {data} = props;
   let navigate = useNavigate();
   return (
     <TableContainer component={Paper}>
@@ -45,7 +45,7 @@ function UsersTable(props) {
           </TableRow>
         </TableHead>
         <TableBody>
-          {props.data.map((record) => {
+          {data.map((record) => {
             return (
               <StyledTableRow>
                 <StyledTableCell>{record.name}</StyledTableCell>

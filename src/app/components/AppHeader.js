@@ -36,6 +36,7 @@ export default function AppHeader() {
           <Button
             color="inherit"
             onClick={() => {
+              localStorage.removeItem("isUserLogin");
               return navigate("/");
             }}
           >
